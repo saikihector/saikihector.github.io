@@ -4,8 +4,74 @@
 }
 
 body {
-    background: #1e202c;
+    overflow: auto;
     overflow-x: hidden;
+    background: linear-gradient(270deg, #1c202c 1%,
+                #60519b 10%, #bfc0d1 30%,
+                #bfc0d1 50%, #bfc0d1 75%,
+                #60519b 90%, #1c202c 100%);
+                background-attachment: fixed;
+                background-size: 400% 400%;
+                animation: colors 10s ease infinite;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    width: 200%;
+    height: 18em;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.17);
+    border-radius: 100% 100% 0 0;
+    animation: line 10s linear infinite;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.5em;
+    opacity: 0.7;
+    animation: line 7.5s linear infinite;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -3em;
+    opacity: 0.6;
+    animation: line 9s linear infinite;
+}
+
+.wave:nth-of-type(4) {
+    bottom: -4.5em;
+    opacity: 0.8;
+    animation: line 8s linear infinite;
+}
+
+@keyframes line {
+    1% {
+        transform: translateX(1);
+    }
+    25% {
+        transform: translateX(-25%);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    75% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(1);
+    }
 }
 
 a {
@@ -38,7 +104,7 @@ nav {
 }
 
 main {
-    background: #1e202c;
+
     background-size: cover;
     height: 92vh;
 }
