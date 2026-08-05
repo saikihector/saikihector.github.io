@@ -78,6 +78,7 @@ main {
     height: 2px;
     background: #fff;
     margin: 8px;
+    transition: 0.3s;
 }
 
 .nav-list.active {
@@ -95,4 +96,16 @@ main {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+.hamburguer.active .line1{
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.hamburguer.active .line2{
+    opacity: 0;
+}
+
+.hamburguer.active .line3{
+    transform: rotate(45deg) translate(-5px, -7px);
 }

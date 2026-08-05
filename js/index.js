@@ -19,6 +19,7 @@ class HamburguerNavBar {
     handleClick() {
         console.log(this);
         this.navList.classList.toggle(this.activeClass);
+        this.hamburguer.classList.toggle(this.activeClass);
         this.animateLinks()
     }
 
