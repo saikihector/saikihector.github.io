@@ -6,7 +6,7 @@ Site desenvolvido como portfólio
 
 - HTML5
 - CSS3
-- JavaScript puro (vanilla)
+- JavaScript
 
 ## Funcionalidades
 
