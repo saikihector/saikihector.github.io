@@ -34,6 +34,7 @@ nav {
     font-family: 'Playfair Display', serif;
     background: #31323e;
     height: 8vh;
+
 }
 
 main {
@@ -50,7 +51,7 @@ main {
     position: absolute;
     top: 8vh;
     right: 0;
-    width: 25vw;
+    width: 15vw;
     height: 92vh;
     background: #31323e;
     flex-direction: column;
@@ -62,7 +63,7 @@ main {
 
 .nav-list li {
     letter-spacing: 3px;
-    margin-left: 47%;
+    margin-left: 42%;
     opacity: 0;
 }
 
