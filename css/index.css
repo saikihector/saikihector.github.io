@@ -7,13 +7,15 @@ body {
     overflow: auto;
     overflow-x: hidden;
     background: linear-gradient(270deg, #1c202c 1%,
-                #60519b 10%, #bfc0d1 30%,
-                #bfc0d1 50%, #bfc0d1 75%,
+                #60519b 10%, rgb(65, 66, 88) 30%,
+                rgb(65, 66, 88) 50%, rgb(65, 66, 88) 75%,
                 #60519b 90%, #1c202c 100%);
                 background-attachment: fixed;
                 background-size: 400% 400%;
                 animation: colors 10s ease infinite;
 }
+
+/* Background Grandient Animation */
 
 @keyframes colors {
     0% {
@@ -27,52 +29,7 @@ body {
     }
 }
 
-.wave {
-    width: 200%;
-    height: 18em;
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    background: rgba(255, 255, 255, 0.17);
-    border-radius: 100% 100% 0 0;
-    animation: line 10s linear infinite;
-}
-
-.wave:nth-of-type(2) {
-    bottom: -1.5em;
-    opacity: 0.7;
-    animation: line 7.5s linear infinite;
-}
-
-.wave:nth-of-type(3) {
-    bottom: -3em;
-    opacity: 0.6;
-    animation: line 9s linear infinite;
-}
-
-.wave:nth-of-type(4) {
-    bottom: -4.5em;
-    opacity: 0.8;
-    animation: line 8s linear infinite;
-}
-
-@keyframes line {
-    1% {
-        transform: translateX(1);
-    }
-    25% {
-        transform: translateX(-25%);
-    }
-    50% {
-        transform: translateX(-50%);
-    }
-    75% {
-        transform: translateX(-25%);
-    }
-    100% {
-        transform: translateX(1);
-    }
-}
+/* corpo */
 
 a {
     color: #fff;
@@ -100,13 +57,7 @@ nav {
     font-family: 'Playfair Display', serif;
     background: #31323e;
     height: 8vh;
-
-}
-
-main {
-
-    background-size: cover;
-    height: 92vh;
+    overflow-x: hidden;
 }
 
 /*nav list*/
@@ -152,6 +103,18 @@ main {
     transform: translateX(0);
 }
 
+/* Texto */
+
+.apresentacao {
+    text-align: center;
+    margin-top: 37vh;
+}
+
+.lead {
+    text-align: center;
+
+}
+
 /* Keyframes */
 
 @keyframes navLinksFade {
@@ -175,4 +138,42 @@ main {
 
 .hamburguer.active .line3{
     transform: rotate(45deg) translate(-5px, -7px);
+}
+
+/* Responsividade */
+
+/* Resolução 1920 */
+@media (max-width: 1920px) {
+    .hamburguer {
+        cursor: pointer;
+        display: block;
+        margin-top: 2vh;
+        margin-left: 53vh;
+    }
+
+    .logo {
+        margin-left: 85vh;
+    }
+}
+
+@media (max-width: 440px) {
+    .logo {
+        margin-left: 17vh;
+    }
+
+    .nav {
+        width: 50%;
+        overflow-x: hidden;
+    }
+
+    .hamburguer {
+        margin-left: 5vh;
+    }
+
+    .nav-list {
+        transform: translateX(100%);
+        right: auto;
+        width: 100%;
+        overflow-x: hidden !important;
+    }
 }
