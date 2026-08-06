@@ -1,35 +1,27 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* adicionar */
 }
 
 body {
-    overflow: auto;
-    overflow-x: hidden;
     background: linear-gradient(270deg, #1c202c 1%,
                 #60519b 10%, rgb(65, 66, 88) 30%,
                 rgb(65, 66, 88) 50%, rgb(65, 66, 88) 75%,
                 #60519b 90%, #1c202c 100%);
-                background-attachment: fixed;
-                background-size: 400% 400%;
-                animation: colors 10s ease infinite;
+    background-attachment: fixed;
+    background-size: 400% 400%;
+    animation: colors 10s ease infinite;
+    /* remover overflow-x: hidden -> não esconda overflow,
+       corriga a causa */
+    font-family: 'Playfair Display', serif;
 }
-
-/* Background Grandient Animation */
 
 @keyframes colors {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
-
-/* corpo */
 
 a {
     color: #fff;
@@ -41,54 +33,29 @@ a:hover {
     opacity: 0.75;
 }
 
+/* ===== NAVBAR ===== */
+nav {
+    display: flex;
+    justify-content: space-between; /* logo | hamburguer */
+    align-items: center;
+    padding: 0 1.5rem; /* espaçamento relativo */
+    background: #31323e;
+    height: 8vh;
+    position: relative;
+}
+
 .logo {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 4px;
-    align-items: center;
-    margin-left: 75vh;
-    margin-top: 2vh;
-}
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    font-family: 'Playfair Display', serif;
-    background: #31323e;
-    height: 8vh;
-    overflow-x: hidden;
-}
-
-/*nav list*/
-
-.nav-list {
-    list-style: none;
-    display: flex;
-    position: absolute;
-    top: 8vh;
-    right: 0;
-    width: 15vw;
-    height: 92vh;
-    background: #31323e;
-    flex-direction: column;
-    align-content: center;
-    justify-content: space-around;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in;
-}
-
-.nav-list li {
-    letter-spacing: 3px;
-    margin-left: 42%;
-    opacity: 0;
+    /* remover margin-left fixo */
 }
 
 .hamburguer {
     cursor: pointer;
     display: block;
-    margin-top: 2vh;
-    margin-left: 50vh;
+    /* remover margin-left fixo */
+    z-index: 10;
 }
 
 .hamburguer div {
@@ -99,12 +66,35 @@ nav {
     transition: 0.3s;
 }
 
+/* ===== MENU LATERAL ===== */
+.nav-list {
+    list-style: none;
+    position: fixed; /* cobre a tela toda */
+    top: 8vh;
+    right: 0;
+    width: 280px; /* largura fixa em px, ou 80vw se preferir */
+    height: calc(100vh - 8vh);
+    background: #31323e;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centraliza horizontalmente */
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+    z-index: 9;
+}
+
+.nav-list li {
+    letter-spacing: 3px;
+    /* remover margin-left: 42% */
+    opacity: 0; /* controlado via JS */
+}
+
 .nav-list.active {
     transform: translateX(0);
 }
 
-/* Texto */
-
+/* ===== TEXTO ===== */
 .apresentacao {
     text-align: center;
     margin-top: 37vh;
@@ -112,11 +102,9 @@ nav {
 
 .lead {
     text-align: center;
-
 }
 
-/* Keyframes */
-
+/* ===== ANIMAÇÕES ===== */
 @keyframes navLinksFade {
     from {
         opacity: 0;
@@ -128,52 +116,26 @@ nav {
     }
 }
 
-.hamburguer.active .line1{
+.hamburguer.active .line1 {
     transform: rotate(-45deg) translate(-8px, 8px);
 }
 
-.hamburguer.active .line2{
+.hamburguer.active .line2 {
     opacity: 0;
 }
 
-.hamburguer.active .line3{
+.hamburguer.active .line3 {
     transform: rotate(45deg) translate(-5px, -7px);
 }
 
-/* Responsividade */
-
-/* Resolução 1920 */
-@media (max-width: 1920px) {
-    .hamburguer {
-        cursor: pointer;
-        display: block;
-        margin-top: 2vh;
-        margin-left: 53vh;
-    }
-
-    .logo {
-        margin-left: 85vh;
-    }
-}
-
-@media (max-width: 440px) {
-    .logo {
-        margin-left: 17vh;
-    }
-
-    .nav {
-        width: 50%;
-        overflow-x: hidden;
-    }
-
-    .hamburguer {
-        margin-left: 5vh;
-    }
-
+/* Ajustes finos para telas muito pequenas */
+@media (max-width: 360px) {
     .nav-list {
-        transform: translateX(100%);
-        right: auto;
         width: 100%;
-        overflow-x: hidden !important;
+    }
+
+    .logo {
+        font-size: 20px;
+        letter-spacing: 2px;
     }
 }
