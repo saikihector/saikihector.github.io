@@ -103,11 +103,13 @@ nav {
 
 
 .box {
-    height: 100vh;
+    min-height: calc(100vh - 8vh); /* desconta a altura do nav */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 60px 20px;
 }
 
 .skill-box {
