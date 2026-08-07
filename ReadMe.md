@@ -19,9 +19,6 @@ Site desenvolvido como portfólio
 ├── index.html
 ├── index.css
 ├── index.js
-├── skills.html
-├── skills.css
-├── skills.js
 
 ```
 
