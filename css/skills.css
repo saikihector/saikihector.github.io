@@ -246,7 +246,10 @@ nav {
     }
 }
 
-@media (mmax-width: 768px) {
+@media (min-width: 768px) {
+    .hamburguer {
+        display: none;
+    }
     .nav-list {
       position: static;
       transform: none;

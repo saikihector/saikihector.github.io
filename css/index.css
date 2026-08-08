@@ -176,7 +176,10 @@ h1, h2 {
     transform: rotate(45deg) translate(-5px, -7px);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+    .hamburguer {
+      display: none;
+    }
     .nav-list {
       position: static;
       transform: none;
